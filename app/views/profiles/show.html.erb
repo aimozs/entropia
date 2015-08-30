@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="col-md-4">
+    <%= image_tag @profile.linkPhoto, width:"200px", class: 'img-circle' %><br>
+    <%= link_to @profile.firstName + " " + @profile.lastName, @profile.linkGoogle %><br>
+    <%= @profile.dob %>
+  </div>
+</div>
+
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to 'Back', profiles_path %>

@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @item.name %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @item.image %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @item.itemType %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @item.level %>
+</p>
+
+<p>
+  <strong>Ttvalue:</strong>
+  <%= @item.ttValue %>
+</p>
+
+<p>
+  <strong>Marketvalue:</strong>
+  <%= @item.marketValue %>
+</p>
+
+<p>
+  <strong>Volume:</strong>
+  <%= @item.volume %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>

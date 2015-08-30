@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-md-4 resource-list">
+    <h3>Resources</h3><%= link_to '+', new_resource_path, class:'btn btn-success pull-right' %><br>
+      <p>
+        <% if @resources %>  
+          <% @resources.order(name: :asc).each do |resource| %>
+            <li>
+              <%= link_to resource.name, resources_path(resource_id: resource.id) %>
+              <% if current_user.id == 1%>
+                <%= link_to 'x', resource, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <% end %>
+            </li>
+          <% end %>
+        <% end %>
+      </p>
+  </div>
+  <div class="col-md-8 resource-desc">
+    <% if @resource %>
+      <% if @resource.linkPhoto %>
+        <%= image_tag @resource.linkPhoto, width:"100px", height:"100px"%>
+      <% else %>
+        <%= image_tag "questionMark.png", width:"100px", height:"100px"%>
+      <% end %>
+      <%= @resource.name %>
+    <% end %>
+  </div>
+</div>
