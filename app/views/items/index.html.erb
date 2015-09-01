@@ -29,7 +29,7 @@
 </p>
 <p>
 TTvalue: <%= @item.ttValue %><br>
-Market Value: <%= @item.marketValue %><br>
+Market Value: <%= @item.ttValue * (@item.marketValue / 100) %><br>
 Volume: <%= @item.volume %><br>
 Cost: sum of the resources' cost<br>
 Market Cost: <br>
