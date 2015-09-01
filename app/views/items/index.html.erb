@@ -15,6 +15,9 @@
       </p>
   </div>
   <div class="col-md-8 resource-desc">
+    <div class="row">
+<div class="col-md-6">
+<p>
     <% if @item %>
       <% if @item.linkPhoto %>
         <%= image_tag @item.linkPhoto, width:"100px", height:"100px"%>
@@ -23,5 +26,19 @@
       <% end %>
       <%= @item.name %>
     <% end %>
+</p>
+<p>
+cost / marketCost / apa
+ttValue / marketValue / volume
+</p>
+<p>
+description
+</p>
+</div>
+<div class="col-md-6">
+liste of resources
+</div>
+</div>
+</div>
   </div>
 </div>
