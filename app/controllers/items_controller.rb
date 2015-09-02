@@ -19,6 +19,7 @@ class ItemsController < ApplicationController
   # GET /items/new
   def new
     @item = Item.new
+    @itemType = ['Mineral', 'Energy']
   end
 
   # GET /items/1/edit

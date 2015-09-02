@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20150830041448) do
 
-  create_table "items", force: true do |t|
+  create_table "items", force: :cascade do |t|
     t.string   "name"
     t.string   "image"
     t.string   "itemType"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20150830041448) do
 
   add_index "items", ["resource_id"], name: "index_items_on_resource_id"
 
-  create_table "profiles", force: true do |t|
+  create_table "profiles", force: :cascade do |t|
     t.string   "firstName"
     t.string   "lastName"
     t.string   "linkPhoto"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20150830041448) do
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
 
-  create_table "resources", force: true do |t|
+  create_table "resources", force: :cascade do |t|
     t.string   "name"
     t.string   "resourceType"
     t.float    "ttValue"
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20150830041448) do
     t.string   "linkPhoto"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"

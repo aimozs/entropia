@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: aimozs
+  api_key: '736544844713646'
+  api_secret: TS3pFLOcYOwIt8_fW3GblJEJZ_E
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: aimozs
+  api_key: '736544844713646'
+  api_secret: TS3pFLOcYOwIt8_fW3GblJEJZ_E
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: aimozs
+  api_key: '736544844713646'
+  api_secret: TS3pFLOcYOwIt8_fW3GblJEJZ_E
+  enhance_image_tag: true
+  static_image_support: false

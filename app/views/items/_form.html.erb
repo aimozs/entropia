@@ -16,12 +16,11 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :image %><br>
-    <%= f.text_field :image %>
+    <%= f.file_field :image %>
   </div>
   <div class="field">
     <%= f.label :itemType %><br>
-    <%= f.text_field :itemType %>
+    <%= f.collection_select :itemType, Item.order(:itemType),:id,:itemType, include_blank: true %>
   </div>
   <div class="field">
     <%= f.label :level %><br>

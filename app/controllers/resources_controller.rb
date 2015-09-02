@@ -19,6 +19,7 @@ class ResourcesController < ApplicationController
   # GET /resources/new
   def new
     @resource = Resource.new
+    @resourceTypes = Resource.order(:resourceType).uniq
   end
 
   # GET /resources/1/edit

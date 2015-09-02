@@ -4,7 +4,8 @@
   <div class="form-inputs">
     <%= f.input :firstName %>
     <%= f.input :lastName %>
-    <%= f.input :linkPhoto %>
+    <%= f.file_field :linkPhoto %>
+    <!-- <%= f.input :linkPhoto %> -->
     <%= f.input :linkGoogle %>
     <%= f.input :dob, start_year: Date.today.year - 16, end_year: Date.today.year - 60%>
     <!-- <%= f.association :user %> -->

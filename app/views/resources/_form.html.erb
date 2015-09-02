@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :resourceType %><br>
-    <%= f.text_field :resourceType %>
+    <%= f.collection_select :resourceType, @resourceTypes,:id,:resourceType, include_blank: true %>
   </div>
   <div class="field">
     <%= f.label :ttValue %><br>

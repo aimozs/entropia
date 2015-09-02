@@ -16,33 +16,35 @@
   </div>
   <div class="col-md-8 resource-desc">
     <div class="row">
-<div class="col-md-6">
-<p>
-    <% if @item %>
-      <% if @item.linkPhoto %>
-        <%= image_tag @item.linkPhoto, width:"100px", height:"100px"%>
-      <% else %>
-        <%= image_tag "questionMark.png", width:"100px", height:"100px"%>
-      <% end %>
-      <%= @item.name %>
-    <% end %>
-</p>
-<p>
-TTvalue: <%= @item.ttValue %><br>
-Market Value: <%= @item.ttValue * (@item.marketValue / 100) %><br>
-Volume: <%= @item.volume %><br>
-Cost: sum of the resources' cost<br>
-Market Cost: <br>
-ApA: <br>
-</p>
-<p>
-description
-</p>
-</div>
-<div class="col-md-6">
-liste of resources
-</div>
-</div>
-</div>
+      <div class="col-md-6">
+        <% if @item %>
+          <p>
+            <% if @item.linkPhoto %>
+              <%= image_tag @item.linkPhoto, width:"100px", height:"100px"%>
+            <% else %>
+              <%= image_tag "questionMark.png", width:"100px", height:"100px"%>
+            <% end %>
+          
+          </p>
+          <div class="panel panel-default">
+            <div class="panel-heading"><%= @item.name %></div>
+            <div class="panel-body">
+              TTvalue: <%= @item.ttValue %><br>
+            Market Value: <%= @item.ttValue * (@item.marketValue / 100) %><br>
+            Volume: <%= @item.volume %><br>
+            Cost: sum of the resources' cost<br>
+            Market Cost: <br>
+            ApA: <br>
+            </div>
+          </div>
+          <p>
+            description
+          </p>
+        <% end %>
+      </div>
+      <div class="col-md-6">
+        liste of resources
+      </div>
+    </div>
   </div>
 </div>
