@@ -20,7 +20,7 @@
   </div>
   <div class="field">
     <%= f.label :itemType %><br>
-    <%= f.collection_select :itemType, Item.order(:itemType),:id,:itemType, include_blank: true %>
+    <%= f.collection_select :itemType, @itemTypes,:id,:itemType, include_blank: true %>
   </div>
   <div class="field">
     <%= f.label :level %><br>

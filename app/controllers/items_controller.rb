@@ -19,7 +19,7 @@ class ItemsController < ApplicationController
   # GET /items/new
   def new
     @item = Item.new
-    @itemType = ['Mineral', 'Energy']
+    @itemTypes = Item.order(:itemType)
   end
 
   # GET /items/1/edit
