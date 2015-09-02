@@ -1,3 +1,6 @@
 class Item < ActiveRecord::Base
-  has_many :resources
+  validates_presence_of :name
+  has_many :resources, through: :recipes
+  has_many :recipes
+  mount_uploader :image, PictureUploader
 end

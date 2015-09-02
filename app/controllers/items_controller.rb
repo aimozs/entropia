@@ -20,10 +20,14 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @itemTypes = Item.order(:itemType)
+    @resources = Resource.all
   end
 
   # GET /items/1/edit
   def edit
+    # @itemTypes = ['Components', 'Weapon', 'Tool']
+    @itemTypes = Item.order(:itemType)
+    @resources = Resource.all
   end
 
   # POST /items
@@ -74,6 +78,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:name, :image, :itemType, :level, :ttValue, :marketValue, :volume, :resource_id)
+      params.require(:item).permit(:name, :itemType, :level, :ttValue, :marketValue, :volume, :resource_id, {image: []})
     end
 end

@@ -16,11 +16,14 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.file_field :image %>
+    <%= f.file_field :image, multiple: true  %>
   </div>
   <div class="field">
     <%= f.label :itemType %><br>
+
     <%= f.collection_select :itemType, @itemTypes,:id,:itemType, include_blank: true %>
+
+    <%= f.text_field :itemType %>
   </div>
   <div class="field">
     <%= f.label :level %><br>
@@ -40,8 +43,10 @@
   </div>
   <div class="field">
     <%= f.label :resource_id %><br>
-    <%= f.text_field :resource_id %>
+    <%= f.collection_select :resource_id, @resources,:id,:name, include_blank: true %>
+    <%# f.link_to_add "+", :resource_id %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

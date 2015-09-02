@@ -24,6 +24,7 @@ class ResourcesController < ApplicationController
 
   # GET /resources/1/edit
   def edit
+    @resourceTypes = Resource.order(:resourceType)
   end
 
   # POST /resources

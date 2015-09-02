@@ -16,12 +16,27 @@
   </div>
   <div class="col-md-8 resource-desc">
     <% if @resource %>
-      <% if @resource.linkPhoto %>
-        <%= image_tag @resource.linkPhoto, width:"100px", height:"100px"%>
-      <% else %>
-        <%= image_tag "questionMark.png", width:"100px", height:"100px"%>
-      <% end %>
-      <%= @resource.name %>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-md-6">
+              <% if @resource.linkPhoto %>
+                <%= image_tag @resource.linkPhoto, width:"100px", height:"100px"%>
+              <% else %>
+                <%= image_tag "questionMark.png", width:"100px", height:"100px"%>
+              <% end %>
+              <%= @resource.name %> (<%= @resource.resourceType %>) <%= link_to "(Edit)", edit_resource_path(@resource)%>
+            </div>
+            <div class="col-md-6">
+              TTValue: <%= @resource.ttValue %><br>
+              MarketValue: <%= @resource.marketValue %><br>
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+          <%= image_tag "eudoria-v3-0.jpg", width:"100%", height:"100%"%>
+        </div>
+      </div>
     <% end %>
   </div>
 </div>

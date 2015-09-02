@@ -27,12 +27,12 @@
           
           </p>
           <div class="panel panel-default">
-            <div class="panel-heading"><%= @item.name %></div>
+            <div class="panel-heading"><%= @item.name %> <%= link_to "(Edit)", edit_item_path(@item)%></div>
             <div class="panel-body">
               TTvalue: <%= @item.ttValue %><br>
             Market Value: <%= @item.ttValue * (@item.marketValue / 100) %><br>
             Volume: <%= @item.volume %><br>
-            Cost: sum of the resources' cost<br>
+            Cost: <% @item.resources.each do |resource| %><%= resource.ttValue %><% end %><br>
             Market Cost: <br>
             ApA: <br>
             </div>
