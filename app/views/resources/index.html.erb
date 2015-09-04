@@ -21,7 +21,7 @@
           <div class="row">
             <div class="col-md-6">
               <% if @resource.linkPhoto %>
-                <%= image_tag @resource.linkPhoto, width:"100px", height:"100px"%>
+                <%= cl_image_tag @resource.linkPhoto, width:"100px", height:"100px"%>
               <% else %>
                 <%= image_tag "questionMark.png", width:"100px", height:"100px"%>
               <% end %>

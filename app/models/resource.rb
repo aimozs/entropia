@@ -4,4 +4,5 @@ class Resource < ActiveRecord::Base
 	validates :name, uniqueness: true
 	has_many :items, through: :recipes
 	has_many :recipes
+	mount_uploader :linkPhoto, PictureUploader
 end

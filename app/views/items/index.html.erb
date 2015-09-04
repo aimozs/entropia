@@ -16,35 +16,51 @@
   </div>
   <div class="col-md-8 resource-desc">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-12">
         <% if @item %>
-          <p>
-            <% if @item.linkPhoto %>
-              <%= image_tag @item.linkPhoto, width:"100px", height:"100px"%>
-            <% else %>
-              <%= image_tag "questionMark.png", width:"100px", height:"100px"%>
-            <% end %>
-          
-          </p>
           <div class="panel panel-default">
-            <div class="panel-heading"><%= @item.name %> <%= link_to "(Edit)", edit_item_path(@item)%></div>
+            <div class="panel-heading">
+              <div class="row">
+                <div class="col-md-5">
+                  <% if @item.linkPhoto %>
+                    <%= image_tag @item.linkPhoto, width:"100px", height:"100px"%>
+                  <% else %>
+                    <%= image_tag "questionMark.png", width:"100px", height:"100px"%>
+                  <% end %>
+                <%= @item.name %> <%= link_to "(Edit)", edit_item_path(@item)%>
+                </div>
+                <div class="col-md-7">
+                  TTvalue: <%= @item.ttValue %><br>
+                Market Value: <%= @item.ttValue * (@item.marketValue / 100) %><br>
+                Volume: <%= @item.volume %><br>
+                Cost: <% @item.resources.each do |resource| %><%= resource.ttValue %><% end %><br>
+                Market Cost: <br>
+                ApA: <br>
+                </div>
+              </div>
+            </div>
             <div class="panel-body">
-              TTvalue: <%= @item.ttValue %><br>
-            Market Value: <%= @item.ttValue * (@item.marketValue / 100) %><br>
-            Volume: <%= @item.volume %><br>
-            Cost: <% @item.resources.each do |resource| %><%= resource.ttValue %><% end %><br>
-            Market Cost: <br>
-            ApA: <br>
+              description
             </div>
           </div>
-          <p>
-            description
-          </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <% @item.resources.each do |resource| %>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <%= resource.name %>
+            </div>
+            <div class="panel-body">
+              resource's description
+            </div>
         <% end %>
       </div>
-      <div class="col-md-6">
-        liste of resources
-      </div>
+    </div>
+      <% end %>
+  </div>
+      
     </div>
   </div>
 </div>

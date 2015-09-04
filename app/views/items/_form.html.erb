@@ -16,7 +16,7 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.file_field :image, multiple: true  %>
+    <%= f.file_field :image, as: :file %>
   </div>
   <div class="field">
     <%= f.label :itemType %><br>

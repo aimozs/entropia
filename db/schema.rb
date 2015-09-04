@@ -11,29 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150902223731) do
+ActiveRecord::Schema.define(version: 20150903015916) do
 
   create_table "items", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.string   "image",       limit: 255
-    t.string   "itemType",    limit: 255
-    t.string   "level",       limit: 255
+    t.string   "name"
+    t.string   "image"
+    t.string   "itemType"
+    t.string   "level"
     t.float    "ttValue"
     t.float    "marketValue"
     t.integer  "volume"
     t.integer  "resource_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "linkPhoto",   limit: 255
+    t.string   "linkPhoto"
   end
 
   add_index "items", ["resource_id"], name: "index_items_on_resource_id"
 
   create_table "profiles", force: :cascade do |t|
-    t.string   "firstName",  limit: 255
-    t.string   "lastName",   limit: 255
-    t.string   "linkPhoto",  limit: 255
-    t.string   "linkGoogle", limit: 255
+    t.string   "firstName"
+    t.string   "lastName"
+    t.string   "linkPhoto"
+    t.string   "linkGoogle"
     t.date     "dob"
     t.integer  "user_id"
     t.datetime "created_at"
@@ -53,26 +53,29 @@ ActiveRecord::Schema.define(version: 20150902223731) do
   add_index "recipes", ["resource_id"], name: "index_recipes_on_resource_id"
 
   create_table "resources", force: :cascade do |t|
-    t.string   "name",         limit: 255
-    t.string   "resourceType", limit: 255
+    t.string   "name"
+    t.string   "resourceType"
     t.float    "ttValue"
     t.float    "marketValue"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "linkPhoto",    limit: 255
+    t.string   "linkPhoto"
+    t.integer  "recipe_id"
   end
 
+  add_index "resources", ["recipe_id"], name: "index_resources_on_recipe_id"
+
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
-    t.string   "reset_password_token",   limit: 255
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                      default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
