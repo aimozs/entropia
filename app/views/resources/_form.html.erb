@@ -17,10 +17,13 @@
         <div class="panel-heading">
           <div class="row">
             <div class="col-md-6">
-              <%= f.file_field :linkPhoto, as: :file %>
+              <%= f.file_field :image, type: :file %>
               <%= f.text_field :name, placeholder: "Name" %><br>
+              <% if !@resourceTypes.empty? %>
               <%= f.collection_select :resourceType, @resourceTypes, :resourceType, :resourceType, include_blank: true %>
-              <%# f.text_field :resourceType, placeholder: "Type is not in list" %>
+              <% else %>
+              <%= f.text_field :resourceType, placeholder: "Resource type" %>
+              <% end %>
             </div>
             <div class="col-md-6">
               TTValue: <%= f.text_field :ttValue %><br>

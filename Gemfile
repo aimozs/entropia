@@ -11,9 +11,13 @@ gem 'sqlite3', group: :development
 gem 'simple_form'
 gem 'devise'
 
+#erd
+gem "rails-erd"
+
 # photo management
-gem 'cloudinary'
 gem 'carrierwave'
+gem 'cloudinary'
+
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'

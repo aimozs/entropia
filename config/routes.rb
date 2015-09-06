@@ -2,7 +2,12 @@ Rails.application.routes.draw do
   resources :profiles
 
   devise_for :users
-  resources :items
+  resources :items do
+    member do
+      get :selectResource
+      get :removeResource
+    end
+  end
 
   resources :resources
 

@@ -4,7 +4,7 @@ class PictureUploader < CarrierWave::Uploader::Base
 
   include Cloudinary::CarrierWave
 
-  process :convert => 'png'
+  # process :convert => 'png'
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
@@ -13,13 +13,13 @@ class PictureUploader < CarrierWave::Uploader::Base
   storage :file
   # storage :fog
 
-  version :standard do
-    process :resize_to_fill => [200, 200, :north]
-  end
+  # version :standard do
+  #   process :resize_to_fill => [200, 200, :north]
+  # end
   
-  version :thumbnail do
-    resize_to_fit(50, 50)
-  end
+  # version :thumbnail do
+  #   resize_to_fit(50, 50)
+  # end
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:

@@ -1,4 +1,5 @@
-<%= form_for(@item) do |f| %>
+<div class="row field">
+  <%= simple_form_for(@item) do |f| %>
   <% if @item.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
@@ -10,44 +11,36 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.file_field :image, as: :file %>
-  </div>
-  <div class="field">
-    <%= f.label :itemType %><br>
-
-    <%= f.collection_select :itemType, @itemTypes,:id,:itemType, include_blank: true %>
-
-    <%= f.text_field :itemType %>
-  </div>
-  <div class="field">
-    <%= f.label :level %><br>
-    <%= f.text_field :level %>
-  </div>
-  <div class="field">
-    <%= f.label :ttValue %><br>
-    <%= f.text_field :ttValue %>
-  </div>
-  <div class="field">
-    <%= f.label :marketValue %><br>
-    <%= f.text_field :marketValue %>
-  </div>
-  <div class="field">
-    <%= f.label :volume %><br>
-    <%= f.number_field :volume %>
-  </div>
-  <div class="field">
-    <%= f.label :resource_id %><br>
-    <%= f.collection_select :resource_id, @resources,:id,:name, include_blank: true %>
-    <%# f.link_to_add "+", :resource_id %>
-  </div>
-
-  <div class="actions">
+  
+    <div class="col-md-6">
+    <%= f.text_field :name, placeholder: "Name" %><br>
+    <%= f.file_field :image, type: :file %><br>
+    <%= hidden_field_tag :image_cache %>
+    <% if current_user.id == 1 %>
+      <%= f.text_field :itemType, placeholder: "Item type" %><br>
+    <% else %>
+      <%= f.collection_select :itemType, @itemTypes, :id, :itemType, include_blank: false %><br>
+    <% end %>
+    <%= f.text_field :level, placeholder: "Level" %><br>
+    <%= f.text_field :ttValue, placeholder: "TTValue" %><br>
+    <%= f.text_field :marketValue, placeholder: "Market Value" %><br>
+    <%= f.number_field :volume, placeholder: "Volume" %><br>
+    <%# f.association :resources, as: :check_boxes %>
+    <div class="actions">
     <%= f.submit %>
   </div>
+    </div>
+    <div class="col-md-6">
+      <% @resources.each do |resource| %>
+        <%# if @item.resources.includes(resource) %>
+        <%# resource.name %><%# link_to 'Remove', removeResource_item_path(resource: resource.id), class: 'btn btn-danger' %>
+        <%# else %>
+        <%= resource.name %><%= link_to 'Select', selectResource_item_path(resource: resource.id), class: 'btn btn-primary' %>
+        <%# end %>
+      <% end %>
+    </div>
+  
+
+  
 <% end %>
+</div>

@@ -1,8 +1,8 @@
 class Resource < ActiveRecord::Base
-	# belong_to :item
 	validates_presence_of :name
 	validates :name, uniqueness: true
-	has_many :items, through: :recipes
+	mount_uploader :image, PictureUploader
 	has_many :recipes
-	mount_uploader :linkPhoto, PictureUploader
+  	has_many :items, through: :recipes
+	
 end

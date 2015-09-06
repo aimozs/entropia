@@ -21,43 +21,52 @@
           <div class="panel panel-default">
             <div class="panel-heading">
               <div class="row">
-                <div class="col-md-5">
-                  <% if @item.linkPhoto %>
-                    <%= image_tag @item.linkPhoto, width:"100px", height:"100px"%>
+                <div class="col-md-6">
+                  <% if @item.image %>
+                    <%= cl_image_tag @item.image.url, width:"100px", height:"100px"%>
                   <% else %>
                     <%= image_tag "questionMark.png", width:"100px", height:"100px"%>
                   <% end %>
-                <%= @item.name %> <%= link_to "(Edit)", edit_item_path(@item)%>
+                <%= @item.name %> (<%= @item.itemType %>) <%= link_to "E", edit_item_path(@item)%>
                 </div>
-                <div class="col-md-7">
-                  TTvalue: <%= @item.ttValue %><br>
-                Market Value: <%= @item.ttValue * (@item.marketValue / 100) %><br>
+                <div class="col-md-3">
+                APpA: <br>
+                TTvalue: <%= @item.ttValue %><br>
+                Cost: <%# @item.resource_id %><br>
+                
+                </div>
+                <div class="col-md-3">
                 Volume: <%= @item.volume %><br>
-                Cost: <% @item.resources.each do |resource| %><%= resource.ttValue %><% end %><br>
+                Market Value: <%= @item.ttValue * (@item.marketValue / 100) %><br>
                 Market Cost: <br>
-                ApA: <br>
                 </div>
               </div>
             </div>
             <div class="panel-body">
               description
             </div>
+            <div class="panel-footer">
+              <div class="row">
+                <% @item.resources.each do |resource| %>
+                  <div class="col-md-3">
+                    <%= image_tag resource.image.url, width:"50px", height:"50px" %>
+                  </div>
+                  <div class="col-md-3">
+                    <%= link_to resource.name, resources_path(resource: resource) %>
+                  </div>
+                  <div class="col-md-3">
+                    Cost: <%= resource.ttValue %><br>
+                  </div>
+                  <div class="col-md-3">
+                    Market Value: <%= resource.ttValue * (resource.marketValue / 100) %><br>
+                  </div>
+                <% end %>
+              </div>
+            </div>
           </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-12">
-        <% @item.resources.each do |resource| %>
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <%= resource.name %>
-            </div>
-            <div class="panel-body">
-              resource's description
-            </div>
-        <% end %>
-      </div>
-    </div>
+
       <% end %>
   </div>
       

@@ -1,13 +1,30 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :destroy, :selectResource, :removeResource]
   respond_to :html, :xml, :json
   # GET /items
   # GET /items.json
+
+  def selectResource
+    if params[:resource]
+      @item.resources << Resource.find(params[:resource])
+    end
+    redirect_to :back
+  end
+
+  def removeResource
+    if params[:resource]
+      @item.resources.delete(params[:resource])
+    end
+    redirect_to :back
+  end
+
   def index
     @items = Item.all
 
     if params[:item_id]
       @item = Item.find(params[:item_id])
+    else
+      @item = Item.last
     end
   end
 
@@ -34,6 +51,7 @@ class ItemsController < ApplicationController
   # POST /items.json
   def create
     @item = Item.new(item_params)
+    @item.resources << :resource_id
 
     respond_to do |format|
       if @item.save
@@ -78,6 +96,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:name, :itemType, :level, :ttValue, :marketValue, :volume, :resource_id, {image: []})
+      params.require(:item).permit(:name, :itemType, :level, :ttValue, :marketValue, :volume, :image)
     end
 end

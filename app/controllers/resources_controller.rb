@@ -6,8 +6,10 @@ class ResourcesController < ApplicationController
   def index
     @resources = Resource.all
 
-    if params[:resource_id]
-      @resource = Resource.find(params[:resource_id])
+    if params[:resource]
+      @resource = Resource.find(params[:resource])
+    else
+      @resource = Resource.last
     end
   end
 
@@ -75,6 +77,6 @@ class ResourcesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def resource_params
-      params.require(:resource).permit(:name, :resourceType, :ttValue, :marketValue)
+      params.require(:resource).permit(:name, :resourceType, :image, :ttValue, :marketValue)
     end
 end
