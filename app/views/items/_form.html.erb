@@ -12,7 +12,7 @@
     </div>
   <% end %>
   
-    <div class="col-md-6">
+    <div class="col-md-4">
     <%= f.text_field :name, placeholder: "Name" %><br>
     <%= f.file_field :image, type: :file %><br>
     <%= hidden_field_tag :image_cache %>
@@ -25,18 +25,29 @@
     <%= f.text_field :ttValue, placeholder: "TTValue" %><br>
     <%= f.text_field :marketValue, placeholder: "Market Value" %><br>
     <%= f.number_field :volume, placeholder: "Volume" %><br>
+    <% @resources.each do |resource| %>
+    <% if @item.resources.includes(resource) %>
+          <% if resource.resourceType == "Energy" %>
+            <%= link_to resource.name, removeResource_item_path(resource: resource), class: 'btn btn-danger' %>
+          <% else %>
+            <%= link_to resource.name, removeResource_item_path(resource: resource), class: 'btn btn-danger' %>
+          <% end %>
+        <% end %>
+        <% end %>
     <%# f.association :resources, as: :check_boxes %>
-    <div class="actions">
     <%= f.submit %>
-  </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-8">
       <% @resources.each do |resource| %>
-        <%# if @item.resources.includes(resource) %>
-        <%# resource.name %><%# link_to 'Remove', removeResource_item_path(resource: resource.id), class: 'btn btn-danger' %>
+        <%# resource.name %><%# link_to 'Remove', removeResource_item_path(resource: resource), class: 'btn btn-danger' %>
         <%# else %>
-        <%= resource.name %><%= link_to 'Select', selectResource_item_path(resource: resource.id), class: 'btn btn-primary' %>
-        <%# end %>
+        <% if !@item.resources.includes(resource) %>
+          <% if resource.resourceType == "Energy" %>
+            <%= link_to resource.name, selectResource_item_path(resource: resource), class: 'btn btn-success' %>
+          <% else %>
+            <%= link_to resource.name, selectResource_item_path(resource: resource), class: 'btn btn-primary' %>
+          <% end %>
+        <% end %>
       <% end %>
     </div>
   
