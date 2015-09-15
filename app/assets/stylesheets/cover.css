@@ -59,6 +59,13 @@ body
   color: #aaa;
 }
 
+.container-outer { overflow: scroll; width: 100%; height: 700px; }
+.container-inner
+{
+  width: 3000px;
+  height: 3000px;
+}
+
 /* Extra markup and styles for table-esque vertical and horizontal centering */
 .site-wrapper {
 
