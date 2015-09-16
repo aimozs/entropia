@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @lode.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @lode.longitude %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @lode.size %>
+</p>
+
+<%= link_to 'Edit', edit_lode_path(@lode) %> |
+<%= link_to 'Back', lodes_path %>

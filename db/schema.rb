@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150906043624) do
+ActiveRecord::Schema.define(version: 20150916075408) do
 
   create_table "items", force: :cascade do |t|
     t.string   "name"
@@ -28,6 +28,14 @@ ActiveRecord::Schema.define(version: 20150906043624) do
   create_table "items_resources", id: false, force: :cascade do |t|
     t.integer "resource_id"
     t.integer "item_id"
+  end
+
+  create_table "lodes", force: :cascade do |t|
+    t.integer  "latitude"
+    t.integer  "longitude"
+    t.integer  "size"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "profiles", force: :cascade do |t|
