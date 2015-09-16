@@ -18,7 +18,7 @@ class LodesControllerTest < ActionController::TestCase
 
   test "should create lode" do
     assert_difference('Lode.count') do
-      post :create, lode: { latitude: @lode.latitude, longitude: @lode.longitude, size: @lode.size }
+      post :create, lode: { latitude: @lode.latitude, longitude: @lode.longitude, resource_id: @lode.resource_id, size: @lode.size }
     end
 
     assert_redirected_to lode_path(assigns(:lode))
@@ -35,7 +35,7 @@ class LodesControllerTest < ActionController::TestCase
   end
 
   test "should update lode" do
-    patch :update, id: @lode, lode: { latitude: @lode.latitude, longitude: @lode.longitude, size: @lode.size }
+    patch :update, id: @lode, lode: { latitude: @lode.latitude, longitude: @lode.longitude, resource_id: @lode.resource_id, size: @lode.size }
     assert_redirected_to lode_path(assigns(:lode))
   end
 

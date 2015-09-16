@@ -26,7 +26,7 @@
                 <%= image_tag "questionMark.png", width:"100px", height:"100px"%>
               <% end %>
               <%= @resource.name %> (<%= @resource.resourceType %>) <%= link_to "(Edit)", edit_resource_path(@resource)%>
-              <%= link_to '+', new_lode_path(resource: @resource), class:'btn btn-success pull-right' %><br>
+              <%= link_to '+', new_lode_path(resource: @resource.id), class:'btn btn-success pull-right' %><br>
             </div>
             <div class="col-md-6">
               TTValue: <%= @resource.ttValue %><br>

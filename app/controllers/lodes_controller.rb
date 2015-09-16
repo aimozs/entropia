@@ -15,9 +15,6 @@ class LodesController < ApplicationController
   # GET /lodes/new
   def new
     @lode = Lode.new
-    if params[:resource]
-      @lode.resource = params[:resource]
-    end
   end
 
   # GET /lodes/1/edit
@@ -72,6 +69,6 @@ class LodesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lode_params
-      params.require(:lode).permit(:latitude, :longitude, :size, :resource)
+      params.require(:lode).permit(:latitude, :longitude, :size, :resource_id)
     end
 end

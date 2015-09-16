@@ -8,6 +8,7 @@ group :development do
 gem 'sqlite3'
 end
 gem "tzinfo-data"
+gem 'coffee-script-source', '1.8.0'
 group :production do
 gem 'pg'
 gem 'rails_12factor'
