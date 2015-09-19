@@ -28,7 +28,7 @@ class LodesController < ApplicationController
 
     respond_to do |format|
       if @lode.save
-        format.html { redirect_to @lode, notice: 'Lode was successfully created.' }
+        format.html { redirect_to new_lode_path, notice: 'Lode was successfully created.' }
         format.json { render :show, status: :created, location: new_lode_path }
       else
         format.html { render :new }
