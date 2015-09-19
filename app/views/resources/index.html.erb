@@ -4,11 +4,11 @@
       <p>
         <% if @resources %>  
           <% @resources.order(name: :asc).each do |resource| %>
-            <li>
+            <li><%= f.collection_select :resource_id, Resource.order(:name),:id,:name, include_blank: true %>
               <%= link_to resource.name, resources_path(resource: resource.id) %>
-              <% if current_user.id == 1%>
-                <%= link_to 'x', resource, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              <% end %>
+              <%# if current_user.id == 1%>
+                <%# link_to 'x', resource, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <%# end %>
             </li>
           <% end %>
         <% end %>
