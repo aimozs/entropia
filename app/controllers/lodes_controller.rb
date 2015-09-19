@@ -29,7 +29,7 @@ class LodesController < ApplicationController
     respond_to do |format|
       if @lode.save
         format.html { redirect_to @lode, notice: 'Lode was successfully created.' }
-        format.json { render :show, status: :created, location: @lode }
+        format.json { render :show, status: :created, location: new_lode_path }
       else
         format.html { render :new }
         format.json { render json: @lode.errors, status: :unprocessable_entity }
