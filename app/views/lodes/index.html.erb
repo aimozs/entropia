@@ -19,10 +19,8 @@
         <td><%= lode.latitude %></td>
         <td><%= lode.longitude %></td>
         <td><%= lode.size %></td>
-        <td><%= lode.resource.name %></td>
-        <td><%= link_to 'Show', lode %></td>
-        <td><%= link_to 'Edit', edit_lode_path(lode) %></td>
-        <td><%= link_to 'Destroy', lode, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to lode.resource.name, lode %></td>
+        <td><%= link_to 'x', lode, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
