@@ -15,6 +15,10 @@ class LodesController < ApplicationController
   # GET /lodes/new
   def new
     @lode = Lode.new
+    # if params[:resource]
+    #   @resource = Resource.find(params[:resource])
+    #   @lode.resource = @resource
+    # end
   end
 
   # GET /lodes/1/edit
@@ -25,11 +29,10 @@ class LodesController < ApplicationController
   # POST /lodes.json
   def create
     @lode = Lode.new(lode_params)
-
     respond_to do |format|
       if @lode.save
-        format.html { redirect_to new_lode_path, notice: 'Lode was successfully created.' }
-        format.json { render :show, status: :created, location: new_lode_path }
+        format.html { redirect_to resources_path(resource: @lode.resource), notice: 'Lode was successfully created.' }
+        format.json { render :show, status: :created, location: resources_path(@lode.resource) }
       else
         format.html { render :new }
         format.json { render json: @lode.errors, status: :unprocessable_entity }

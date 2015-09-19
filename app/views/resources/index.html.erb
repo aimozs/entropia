@@ -1,14 +1,14 @@
 <div class="row">
   <div class="col-md-4 resource-list">
-    <h3>Resources</h3><%= link_to '+', new_resource_path, class:'btn btn-success pull-right' %><br>
+    <h3>Resources (<%= link_to 'Lodes', lodes_path %>)</h3><%= link_to '+', new_resource_path, class:'btn btn-success pull-right' %><br>
       <p>
         <% if @resources %>  
           <% @resources.order(name: :asc).each do |resource| %>
-            <li><%= f.collection_select :resource_id, Resource.order(:name),:id,:name, include_blank: true %>
+            <li>
               <%= link_to resource.name, resources_path(resource: resource.id) %>
-              <%# if current_user.id == 1%>
-                <%# link_to 'x', resource, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              <%# end %>
+              <% if current_user.id == 1%>
+                <%= link_to 'x', resource, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <% end %>
             </li>
           <% end %>
         <% end %>

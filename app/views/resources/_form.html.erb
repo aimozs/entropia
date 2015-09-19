@@ -19,7 +19,7 @@
             <div class="col-md-6">
               <%= f.file_field :image, type: :file %>
               <%= f.text_field :name, placeholder: "Name" %><br>
-              <% if !@resourceTypes.empty? %>
+              <% if @resourceTypes %>
               <%= f.collection_select :resourceType, @resourceTypes, :resourceType, :resourceType, include_blank: true %>
               <% else %>
               <%= f.text_field :resourceType, placeholder: "Resource type" %>
