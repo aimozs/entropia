@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-4 resource-list">
-    <h3>Resources (<%= link_to 'Lodes', lodes_path %>)</h3><%= link_to '+', new_resource_path, class:'btn btn-success pull-right' %><br>
+    <%= link_to '+', new_resource_path, class:'btn btn-info' %><%= link_to '+', new_lode_path(resource: @resource.id), class:'btn btn-default pull-right' %><br>
       <p>
         <% if @resources %>  
           <% @resources.order(name: :asc).each do |resource| %>
@@ -13,9 +13,7 @@
           <% end %>
         <% end %>
       </p>
-  </div>
-  <div class="col-md-8 resource-desc">
-    <% if @resource %>
+      <% if @resource %>
       <div class="panel panel-default">
         <div class="panel-heading">
           <div class="row">
@@ -26,7 +24,7 @@
                 <%= image_tag "questionMark.png", width:"100px", height:"100px"%>
               <% end %>
               <%= @resource.name %> (<%= @resource.resourceType %>) <%= link_to "(Edit)", edit_resource_path(@resource)%>
-              <%= link_to '+', new_lode_path(resource: @resource.id), class:'btn btn-success pull-right' %><br>
+              
             </div>
             <div class="col-md-6">
               TTValue: <%= @resource.ttValue %><br>
@@ -34,15 +32,10 @@
             </div>
           </div>
         </div>
-        <div class="panel-body">
-          <div class="container-outer">
-            <div class="container-inner">
-              <%= image_tag "eudoria-v3-0.jpg", width:"100%", height:"100%"%>
-            </div>
-          </div>
-          
-        </div>
       </div>
     <% end %>
+  </div>
+  <div class="col-md-8 resource-desc">
+    <%= image_tag "eudoria-v3-0.jpg", width:"100%", height:"100%"%>
   </div>
 </div>
