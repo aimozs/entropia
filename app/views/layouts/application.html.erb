@@ -22,8 +22,25 @@
 <body>
 
 	<%= render "layouts/navbar" %>
-	<div class="container">
-		<%= yield %>
+	<div class="row">
+		<div class="col-md-1">
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<!-- entropiaStatsLeft -->
+			<ins class="adsbygoogle"
+		    style="display:block"
+		    data-ad-client="ca-pub-1350672881569046"
+		    data-ad-slot="3694956653"
+		    data-ad-format="auto"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div>
+		<div class="col-md-10">
+			<%= yield %>
+		</div>
+		<div class="col-md-1">
+			second ad
+		</div>
 	</div>
 
 </body>
