@@ -1,6 +1,8 @@
 <%= simple_form_for(@lode) do |f| %>
   <%= f.error_notification %>
-
+<div class="form-actions">
+    <%= f.button :submit, "!", class: 'pull-right btn btn-default'  %>
+  </div>
   <div class="form-inputs field">
     <% if(@resource) %>
       <%= "Creating a new lode for " + @resource.name %>
@@ -17,8 +19,5 @@
     
 
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "!", class: 'pull-right btn btn-default'  %>
-  </div>
+  
 <% end %>
