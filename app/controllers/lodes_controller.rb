@@ -31,7 +31,7 @@ class LodesController < ApplicationController
     @lode = Lode.new(lode_params)
     respond_to do |format|
       if @lode.save
-        format.html { redirect_to resources_path(resource: @lode.resource), notice: 'Lode was successfully created.' }
+        format.html { redirect_to new_lode_path(resource: @lode.resource), notice: 'Lode was successfully created.' }
         format.json { render :show, status: :created, location: resources_path(@lode.resource) }
       else
         format.html { render :new }
