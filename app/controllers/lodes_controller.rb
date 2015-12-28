@@ -15,6 +15,13 @@ class LodesController < ApplicationController
   # GET /lodes/new
   def new
     @lode = Lode.new
+    @lastLode = Lode.last
+
+    if params[:resource]
+      @resource = Resource.find(params[:resource])
+    else
+      @resource = @lastLode.resource
+    end
     # if params[:resource]
     #   @resource = Resource.find(params[:resource])
     #   @lode.resource = @resource

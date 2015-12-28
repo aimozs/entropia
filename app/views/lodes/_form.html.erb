@@ -1,23 +1,30 @@
 <%= simple_form_for(@lode) do |f| %>
-  <%= f.error_notification %>
+  <%= f.error_notification %><!-- 
 <div class="form-actions">
-    <%= f.button :submit, "!", class: 'pull-right btn btn-default'  %>
-  </div>
-  <div class="form-inputs field">
-    <% if(@resource) %>
-      <%= "Creating a new lode for " + @resource.name %>
-    <% else %>
-      <%= f.association :resource %>
-    <% end %>
-
-    <%= f.input :latitude %>
-
-    <%= f.input :longitude %>
-
-    <%= f.input :size %>
-
     
+  </div> -->
+  <div class="row">
+    <div class="form-inputs field col-md-5">
+    <%= f.button :submit, "!", class: 'pull-right btn btn-default'  %>
+      <% if(@lastLode) %>
+        <!-- <div class="alert alert-success"><%= @lastLode.resource.name %></div> -->
+        <%= f.association :resource, :default => @resource %>
+        <%# "Creating a new lode for " + @resource.name %>
+      <% else %>
+        <%= f.association :resource %>
+      <% end %>
 
+      <%= f.input :latitude %>
+
+      <%= f.input :longitude %>
+
+      <%= f.input :size %>
+
+    </div>
+    <div class="col-md-6">
+      <% if(@lastLode) %>
+        <%= render "resources/resourcePanel" %>
+      <% end %>
+    </div>
   </div>
-  
 <% end %>
