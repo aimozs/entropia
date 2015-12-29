@@ -10,6 +10,7 @@ class LodesController < ApplicationController
   # GET /lodes/1
   # GET /lodes/1.json
   def show
+    @resource = @lode.resource
   end
 
   # GET /lodes/new

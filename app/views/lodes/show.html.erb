@@ -1,24 +1,30 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Latitude:</strong>
-  <%= @lode.latitude %>
-</p>
+<div class="row">
+	<div class="col-md-4">
+	<%= link_to '<', lodes_path, class: 'btn btn-default' %>
+		<%= render "resources/resourcePanel" %>
+		<p>
+		  <strong>Latitude:</strong>
+		  <%= @lode.latitude %>
+		</p>
 
-<p>
-  <strong>Longitude:</strong>
-  <%= @lode.longitude %>
-</p>
+		<p>
+		  <strong>Longitude:</strong>
+		  <%= @lode.longitude %>
+		</p>
 
-<p>
-  <strong>Size:</strong>
-  <%= @lode.size %>
-</p>
+		<p>
+		  <strong>Size:</strong>
+		  <%= @lode.size %>
+		</p>
 
-<p>
-  <strong>Resource:</strong>
-  <%= @lode.resource %>
-</p>
+<%= link_to 'Edit', edit_lode_path(@lode) %>
 
-<%= link_to 'Edit', edit_lode_path(@lode) %> |
-<%= link_to 'Back', lodes_path %>
+	</div>
+
+	<div class="col-md-8 resource-desc">
+    <%= image_tag "eudoria-v3-0.jpg", width:"100%", height:"100%"%>
+  </div>
+</div>
+
