@@ -4,7 +4,7 @@ class LodesController < ApplicationController
   # GET /lodes
   # GET /lodes.json
   def index
-    @lodes = Lode.all
+    @lodes = Lode.order(created_at: :desc)
   end
 
   # GET /lodes/1

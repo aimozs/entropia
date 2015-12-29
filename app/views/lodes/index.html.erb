@@ -2,26 +2,28 @@
 
 <h1>Listing Lodes</h1>
 
-<%= link_to '+', new_lode_path, class: "btn btn-success" %>
+<%= link_to '+', new_lode_path, class: "btn btn-default" %>
 
 <table class="table table-striped">
   <thead>
     <tr>
+      <th>Resource</th>
       <th>Latitude</th>
       <th>Longitude</th>
       <th>Size</th>
-      <th>Resource</th>
-      <th colspan="3"></th>
+      <th>Delete</th>
+      <!-- <th colspan="3"></th> -->
     </tr>
   </thead>
 
   <tbody>
     <% @lodes.each do |lode| %>
       <tr>
+        <td><%= link_to lode.resource.name, lode %></td>
         <td><%= lode.latitude %></td>
         <td><%= lode.longitude %></td>
         <td><%= lode.size %></td>
-        <td><%= link_to lode.resource.name, lode %></td>
+        
         <td><%= link_to 'x', lode, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
       </tr>
     <% end %>
