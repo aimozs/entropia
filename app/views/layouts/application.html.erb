@@ -24,6 +24,7 @@
 	<%= render "layouts/navbar" %>
 	<div class="row">
 		<div class="col-md-2">
+			<% if current_user.id != 1%>
 			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 			<!-- entropiaStatsLeft -->
 			<ins class="adsbygoogle"
@@ -34,11 +35,13 @@
 			<script>
 			(adsbygoogle = window.adsbygoogle || []).push({});
 			</script>
+			<% end %>
 		</div>
 		<div class="col-md-8">
 			<%= yield %>
 		</div>
 		<div class="col-md-2">
+		<% if current_user.id != 1%>
 			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 			<!-- entropiaStatsRight -->
 			<ins class="adsbygoogle"
@@ -49,6 +52,7 @@
 			<script>
 			(adsbygoogle = window.adsbygoogle || []).push({});
 			</script>
+			<% end %>
 		</div>
 	</div>
 

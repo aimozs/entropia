@@ -11,28 +11,35 @@
       </ul>
     </div>
   <% end %>
-  
-    <div class="col-md-4">
-    <%= f.text_field :name, placeholder: "Name" %><br>
-    <%= f.file_field :image, type: :file %><br>
-    <%= hidden_field_tag :image_cache %>
-    <% if current_user.id == 1 %>
-      <%= f.text_field :itemType, placeholder: "Item type" %><br>
-    <% else %>
-      <%= f.collection_select :itemType, @itemTypes, :id, :itemType, include_blank: false %><br>
-    <% end %>
-    <%= f.text_field :level, placeholder: "Level" %><br>
-    <%= f.text_field :ttValue, placeholder: "TTValue" %><br>
-    <%= f.text_field :marketValue, placeholder: "Market Value" %><br>
-    <%= f.number_field :volume, placeholder: "Volume" %><br>
-    <%# f.association :resources, as: :check_boxes %>
-    <%= f.submit %>
-    </div>
-    <div class="col-md-8">
-      
-    </div>
-  
 
+  <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-md-6">
+            
+            <%= f.file_field :image, type: :file %><br>
+            <%= f.text_field :name, placeholder: "Name" %><br>
+            <%= hidden_field_tag :image_cache %>
+
+            <% if current_user.id == 1 %>
+              <%= f.text_field :itemType, placeholder: "Item type" %><br>
+            <% else %>
+              <%= f.collection_select :itemType, @itemTypes, :id, :itemType, include_blank: false %><br>
+            <% end %>
+            <%= f.text_field :level, placeholder: "Level" %><br>
+          </div>
+          <div class="col-md-6">
+            
+            <%= f.text_field :ttValue, placeholder: "TTValue" %><br>
+            <%= f.text_field :marketValue, placeholder: "Market Value" %><br>
+            <%= f.number_field :volume, placeholder: "Volume" %><br>
+          </div>
+        </div>
+      </div>
+  
+    
+    <%= f.submit %>
+  </div>
   
 <% end %>
 </div>
