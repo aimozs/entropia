@@ -1,4 +1,4 @@
-<div class="row field">
+ <div class="row field">
   <%= simple_form_for(@item) do |f| %>
   <% if @item.errors.any? %>
     <div id="error_explanation">
@@ -29,9 +29,7 @@
     <%= f.submit %>
     </div>
     <div class="col-md-8">
-      <% @resources.each do |resource| %>
-         <%= link_to resource.name, selectResource_item_path(resource), class: 'btn btn-success' %>
-      <% end %>
+      
     </div>
   
 

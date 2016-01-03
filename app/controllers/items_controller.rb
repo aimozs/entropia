@@ -6,7 +6,8 @@ class ItemsController < ApplicationController
 
   def selectResource
     if params[:resource]
-      @item.resources << Resource.find(params[:resource])
+      @selectedResource = Resource.find(params[:resource])
+      @item.resources << @selectedResource
     end
     redirect_to :back
   end
@@ -31,6 +32,7 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
+    @resources = Resource.all
   end
  
   # GET /items/new
@@ -51,7 +53,7 @@ class ItemsController < ApplicationController
   # POST /items.json
   def create
     @item = Item.new(item_params)
-    @item.resources << :resource_id
+    # @item.resources << :resource_id
 
     respond_to do |format|
       if @item.save

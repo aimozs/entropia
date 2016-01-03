@@ -1,41 +1,56 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @item.name %>
-</p>
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-md-12">
+            <% if @item.image %>
+              <%= image_tag @item.image.url, width:"100px", height:"100px"%>
+            <% else %>
+              <%= image_tag "questionMark.png", width:"100px", height:"100px"%>
+            <% end %>
+            <%= @item.name %> (<%= @item.itemType %> - <%= @item.level %>) <%= link_to "(Edit)", edit_resource_path(@item)%>
+            
+          </div>
+          <div class="col-md-12">
+            TTValue: <%= @item.ttValue %><br>
+            MarketValue: <%= @item.marketValue %><br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @item.image.url %>
-</p>
+  <div class="col-md-6">
 
-<p>
-  <strong>Type:</strong>
-  <%= @item.itemType %>
-</p>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Used resources
+      </div>
 
-<p>
-  <strong>Level:</strong>
-  <%= @item.level %>
-</p>
+      <div class="panel-body">
+        <% @resources.each do |resource| %>
+          <% if @item.resources.include? resource %>
+            <%= link_to resource.name, removeResource_item_path(@item, resource: resource), class: 'btn btn-danger' %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
 
-<p>
-  <strong>Ttvalue:</strong>
-  <%= @item.ttValue %>
-</p>
-
-<p>
-  <strong>Marketvalue:</strong>
-  <%= @item.marketValue %>
-</p>
-
-<p>
-  <strong>Volume:</strong>
-  <%= @item.volume %>
-</p>
-
-
-
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Resources
+      </div>
+      <div class="panel-body">
+        <% @resources.each do |resource| %>
+          <% if !@item.resources.include? resource %>
+            <%= link_to resource.name, selectResource_item_path(@item, resource: resource), class: 'btn btn-success' %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    
+  </div>
+</div>
