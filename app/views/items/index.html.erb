@@ -27,7 +27,7 @@
                   <% else %>
                     <%= image_tag "questionMark.png", width:"100px", height:"100px"%>
                   <% end %>
-                <%= @item.name %> (<%= @item.itemType %>) <%= link_to "E", edit_item_path(@item)%>
+                <%= link_to @item.name, item_path(@item) %> (<%= @item.itemType %>) <%= link_to "E", edit_item_path(@item)%>
                 </div>
                 <div class="col-md-3">
                 APpA: <br>
@@ -58,7 +58,9 @@
                     Cost: <%= resource.ttValue %><br>
                   </div>
                   <div class="col-md-3">
+                    <% if resource.ttValue && resource.marketValue %>
                     Market Value: <%= resource.ttValue * (resource.marketValue / 100) %><br>
+                    <% end %>
                   </div>
                 <% end %>
               </div>
