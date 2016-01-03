@@ -20,7 +20,9 @@
           </div>
           <div class="col-md-12">
             TTValue: <%= @item.ttValue %><br>
+            Cost: <%= @item.resources.sum(:ttValue).round(3) %><br>
             MarketValue: <%= @item.marketValue %><br>
+
           </div>
         </div>
       </div>
