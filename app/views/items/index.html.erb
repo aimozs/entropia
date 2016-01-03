@@ -37,7 +37,7 @@
                 </div>
                 <div class="col-md-3">
                 Volume: <%= @item.volume %><br>
-                Market Value: <%= @item.ttValue * (@item.marketValue / 100) %><br>
+                Market Value: <%= @item.marketValue %><br>
                 Market Cost: <br>
                 </div>
               </div>
@@ -58,8 +58,8 @@
                     Cost: <%= resource.ttValue %><br>
                   </div>
                   <div class="col-md-3">
-                    <% if resource.ttValue && resource.marketValue %>
-                    Market Value: <%= resource.ttValue * (resource.marketValue / 100) %><br>
+                    <% if resource.marketValue %>
+                    Market Value: <%= resource.marketValue %><br>
                     <% end %>
                   </div>
                 <% end %>
