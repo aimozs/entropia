@@ -11,7 +11,10 @@
             <% else %>
               <%= image_tag "questionMark.png", width:"100px", height:"100px"%>
             <% end %>
-            <%= @item.name %> (<%= @item.itemType %> - <%= @item.level %>) <%= link_to "(Edit)", edit_resource_path(@item)%>
+            <%= @item.name %> (<%= @item.itemType %> - <%= @item.level %>)
+            <% if current_user.id == 1%>
+              <%= link_to "(Edit)", edit_resource_path(@item)%>
+            <% end %>
             
           </div>
           <div class="col-md-12">
