@@ -62,7 +62,8 @@
 
       <% @resources.each do |resource| %>
         <% if @item.resources.include? resource %>
-          <%= link_to resource.name, resource_path(resource), class: 'btn btn-danger' %>
+          <%= render "resources/resourcePanel", resource: resource %>
+          <%# link_to resource.name, resource_path(resource), class: 'btn btn-danger' %>
         <% end %>
       <% end %>
 

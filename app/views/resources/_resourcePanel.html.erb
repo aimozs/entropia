@@ -1,19 +1,36 @@
 <div class="panel panel-default">
   <div class="panel-heading">
     <div class="row">
-      <div class="col-md-6">
-        <% if @resource.image %>
-          <%= image_tag @resource.image, width:"100px", height:"100px"%>
-        <% else %>
-          <%= image_tag "questionMark.png", width:"100px", height:"100px"%>
-        <% end %>
-        <%= @resource.name %> (<%= @resource.resourceType %>) <%= link_to "(Edit)", edit_resource_path(@resource)%>
-        
-      </div>
-      <div class="col-md-6">
-        TTValue: <%= @resource.ttValue %><br>
-        MarketValue: <%= @resource.marketValue %><br>
-      </div>
+      <% if @resource %>
+        <div class="col-md-6">
+
+          <% if @resource.image %>
+            <%= image_tag @resource.image, width:"100px", height:"100px"%>
+          <% else %>
+            <%= image_tag "questionMark.png", width:"100px", height:"100px"%>
+          <% end %>
+          <%= @resource.name %> (<%= @resource.resourceType %>)
+          
+        </div>
+        <div class="col-md-6">
+          TTValue: <%= @resource.ttValue %><br>
+          MarketValue: <%= @resource.marketValue %><br>
+        </div>
+      <% else %>
+        <div class="col-md-6">
+
+          <% if resource.image %>
+            <%= image_tag resource.image, width:"100px", height:"100px"%>
+          <% else %>
+            <%= image_tag "questionMark.png", width:"100px", height:"100px"%>
+          <% end %>
+          <%= resource.name %> (<%= resource.resourceType %>)
+        </div>
+        <div class="col-md-6">
+          TTValue: <%= resource.ttValue %><br>
+          MarketValue: <%= resource.marketValue %><br>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

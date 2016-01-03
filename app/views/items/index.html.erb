@@ -33,14 +33,15 @@
                   (<%= @item.itemType %> - <%= @item.level %>)
                 </div>
                 <div class="col-md-3">
-                APpA: <br>
-                TTvalue: <%= @item.ttValue %><br>
+                Volume: <%= @item.volume %><br>
+                Market Value: <%= @item.marketValue %><br>
+                
                 Cost: <%= @item.resources.sum(:ttValue).round(3) %><br>
                 
                 </div>
                 <div class="col-md-3">
-                Volume: <%= @item.volume %><br>
-                Market Value: <%= @item.marketValue %><br>
+                APpA: <br>
+                TTvalue: <%= @item.ttValue %><br>
                 Market Cost: <br>
                 </div>
               </div>

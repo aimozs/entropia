@@ -33,6 +33,10 @@ class ItemsController < ApplicationController
   # GET /items/1.json
   def show
     @resources = Resource.all
+
+    if params[:resource]
+      @resource = Resource.find(params[:resource])
+    end
   end
  
   # GET /items/new
